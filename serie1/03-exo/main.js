@@ -10,3 +10,22 @@ minMax([2334454, 5]) ➞ [5, 2334454]
 
 minMax([1]) ➞ [1, 1]
 */
+
+function minMax(array) {
+    let min = array[0];
+    let max = array.length -1;
+    for(i=0; i < array.length; i++){
+        if(array[i] < min){
+            min = array[i];
+        } else if (array[i] > array.length -1){
+            max = array[i];
+        }
+    }
+
+    return [min, max];
+
+}
+
+console.log(minMax([1, 2, 3, 4, 5])); 
+console.log(minMax([2334454, 5])); 
+console.log(minMax([1])); 
