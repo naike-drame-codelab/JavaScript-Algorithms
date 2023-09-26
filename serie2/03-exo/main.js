@@ -1,22 +1,23 @@
 /*
-Create a function that takes two arguments. Both arguments are integers, a and b. Return true if one of them is 10 or if their sum is 10.
+Write a function that converts an object into an array, where each element represents a key-value pair in the form of an array.
+
 Notes
-Don't forget to return the result.
+Return an empty array if the object is empty.
 
 Expected results
-makesTen(9, 10) ➞ true
-makesTen(9, 9) ➞ false
-makesTen(1, 9) ➞ true
+toArray({ a: 1, b: 2 }) ➞ [["a", 1], ["b", 2]]
+toArray({ shrimp: 15, tots: 12 }) ➞ [["shrimp", 15], ["tots", 12]]
+toArray({}) ➞ []
 */
 
-function makesTen(num1, num2) {
-    if(num1 === 10 || num2 ===10 || num1 + num2 === 10) {
-        return true;
-    } else { return false; }
+function toArray(obj) {
+    let arr = [];
+    for (const [key, value] of Object.entries(obj)) {
+        arr.push([key, value]);
+    }
+    return arr;
 }
 
-console.log(makesTen(5, 4));
-console.log(makesTen(0, 10));
-console.log(makesTen(6, 4));
-console.log(makesTen(7, 2));
-console.log(makesTen(10, 0));
+console.log(toArray({ a: 1, b: 2 }));
+console.log(toArray({ shrimp: 15, tots: 12 }));
+console.log(toArray({}));
