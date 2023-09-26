@@ -1,22 +1,41 @@
 /*
-Create a function that takes two arguments. Both arguments are integers, a and b. Return true if one of them is 10 or if their sum is 10.
+Create a function that takes in a number as a string n and returns the number without trailing and leading zeros.
+
+- Trailing Zeros are the zeros after a decimal point which don't affect the value (e.g. the last three zeros in 3.4000 and 3.04000).
+- Leading Zeros are the zeros before a whole number which don't affect the value (e.g. the first three zeros in 000234 and 000230).
 Notes
-Don't forget to return the result.
+Return a string.
+If you get a number with .0 on the end, return the integer value (e.g. return "4" rather than "4.0").
+If the number is 0, 0.0, 000, 00.00, etc... return "0".
 
 Expected results
-makesTen(9, 10) ➞ true
-makesTen(9, 9) ➞ false
-makesTen(1, 9) ➞ true
+removeLeadingTrailing("230.000") ➞ "230"
+removeLeadingTrailing("00402") ➞ "402"
+removeLeadingTrailing("03.1400") ➞ "3.14"
+removeLeadingTrailing("30") ➞ "30"
 */
 
-function makesTen(num1, num2) {
-    if(num1 === 10 || num2 ===10 || num1 + num2 === 10) {
-        return true;
-    } else { return false; }
+function removeLeadingTrailing(n) {
+    // Remove trailing zeros
+    n = parseFloat(n).toString();
+
+    // Remove leading zeros
+    n = n.replace(/^0+/, '');
+
+    // Handle cases where the number is 0
+    if (n === '0' || n === '0.0') {
+        return '0';
+    }
+
+    // Handle cases where the number ends with .0
+    if (n.endsWith('.0')) {
+        return n.slice(0, -2);
+    }
+
+    return n;
 }
 
-console.log(makesTen(5, 4));
-console.log(makesTen(0, 10));
-console.log(makesTen(6, 4));
-console.log(makesTen(7, 2));
-console.log(makesTen(10, 0));
+console.log(removeLeadingTrailing("230.000.0"));
+console.log(removeLeadingTrailing("00402"));
+console.log(removeLeadingTrailing("03.1400"));
+console.log(removeLeadingTrailing("30"));
