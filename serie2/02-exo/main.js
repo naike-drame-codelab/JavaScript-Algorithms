@@ -1,22 +1,27 @@
 /*
-Create a function that takes two arguments. Both arguments are integers, a and b. Return true if one of them is 10 or if their sum is 10.
-Notes
-Don't forget to return the result.
+Create a function that will return an integer number corresponding to the amount of digits in the given integer num.
 
 Expected results
-makesTen(9, 10) ➞ true
-makesTen(9, 9) ➞ false
-makesTen(1, 9) ➞ true
+num_of_digits(1000) ➞ 4
+num_of_digits(12) ➞ 2
+num_of_digits(1305981031) ➞ 10
+num_of_digits(0) ➞ 1
 */
 
-function makesTen(num1, num2) {
-    if(num1 === 10 || num2 ===10 || num1 + num2 === 10) {
-        return true;
-    } else { return false; }
+function numDigits(int){
+    let count = 0;
+    if (int === 0) return ++count;
+    
+    while (int !== 0) 
+    {        
+        int = Math.floor(int / 10);
+        count++;
+    }
+    return count;
 }
 
-console.log(makesTen(5, 4));
-console.log(makesTen(0, 10));
-console.log(makesTen(6, 4));
-console.log(makesTen(7, 2));
-console.log(makesTen(10, 0));
+console.log(numDigits(1000));
+console.log(numDigits(12));
+console.log(numDigits(1305981031));
+console.log(numDigits(130598103154654564649846523127));
+console.log(numDigits(0));
