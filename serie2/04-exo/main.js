@@ -1,22 +1,23 @@
 /*
-Create a function that takes two arguments. Both arguments are integers, a and b. Return true if one of them is 10 or if their sum is 10.
+Create a function that takes two numbers as arguments (num, length) and returns an array of multiples of num until the array length reaches length.
+
 Notes
-Don't forget to return the result.
+Notice that num is also included in the returned array.
 
 Expected results
-makesTen(9, 10) ➞ true
-makesTen(9, 9) ➞ false
-makesTen(1, 9) ➞ true
+arrayOfMultiples(7, 5) ➞ [7, 14, 21, 28, 35]
+arrayOfMultiples(12, 10) ➞ [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+arrayOfMultiples(17, 6) ➞ [17, 34, 51, 68, 85, 102]
 */
 
-function makesTen(num1, num2) {
-    if(num1 === 10 || num2 ===10 || num1 + num2 === 10) {
-        return true;
-    } else { return false; }
+function arrayOfMultiples(num, length) {
+    let arr = [];
+    for (let i = num; i <= num * length; i += num) {
+        arr.push(i);
+    }
+    return arr;
 }
-
-console.log(makesTen(5, 4));
-console.log(makesTen(0, 10));
-console.log(makesTen(6, 4));
-console.log(makesTen(7, 2));
-console.log(makesTen(10, 0));
+console.log(arrayOfMultiples(7,5));
+console.log(arrayOfMultiples(12,10));
+console.log(arrayOfMultiples(17,6));
+console.log(arrayOfMultiples(9,16));
