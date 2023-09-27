@@ -1,22 +1,37 @@
 /*
-Create a function that takes two arguments. Both arguments are integers, a and b. Return true if one of them is 10 or if their sum is 10.
+Create a function that takes two numbers and a mathematical operator + - / * and will perform a calculation with the given numbers.
+
 Notes
-Don't forget to return the result.
+If the input tries to divide by 0, return: "Can't divide by 0!"
 
 Expected results
-makesTen(9, 10) ➞ true
-makesTen(9, 9) ➞ false
-makesTen(1, 9) ➞ true
+calculator(2, "+", 2) ➞ 4
+calculator(2, "*", 2) ➞ 4
+calculator(4, "/", 2) ➞ 2
 */
 
-function makesTen(num1, num2) {
-    if(num1 === 10 || num2 ===10 || num1 + num2 === 10) {
-        return true;
-    } else { return false; }
+function calculator(a, op, b) {
+    switch (op) {
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        case '*':
+            return a * b;
+        case '/':
+            if (op === '/' && b == '0') {
+                console.log("Can't divide by zero!");
+            } else {
+                return a / b;
+            }
+        default:
+            return null;
+    }
+
 }
 
-console.log(makesTen(5, 4));
-console.log(makesTen(0, 10));
-console.log(makesTen(6, 4));
-console.log(makesTen(7, 2));
-console.log(makesTen(10, 0));
+console.log(calculator(2, "+", 2));
+console.log(calculator(2, "*", 2));
+console.log(calculator(10, "/", 2));
+console.log(calculator(913, "-", 17));
+console.log(calculator(2,"/",0));

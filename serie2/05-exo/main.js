@@ -31,7 +31,6 @@ function removeLeadingTrailing(n) {
     if (n.endsWith('.0')) {
         return n.slice(0, -2);
     }
-
     return n;
 }
 
