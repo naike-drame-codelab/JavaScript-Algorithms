@@ -33,7 +33,7 @@ function removeLeadingTrailing(n) {
     }
     return n;
 }
-
+// refactor 1 line: return parseFloat(n)
 console.log(removeLeadingTrailing("230.000.0"));
 console.log(removeLeadingTrailing("00402"));
 console.log(removeLeadingTrailing("03.1400"));
