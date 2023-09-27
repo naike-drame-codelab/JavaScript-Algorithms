@@ -1,22 +1,23 @@
 /*
-Create a function that takes two arguments. Both arguments are integers, a and b. Return true if one of them is 10 or if their sum is 10.
+Create a function that takes a country's name and its area as arguments and returns the area of the country's proportion of the total world's landmass.
+
 Notes
-Don't forget to return the result.
+The total world's landmass is 148,940,000 [Km^2]
+Round the result to two decimal places.
 
 Expected results
-makesTen(9, 10) ➞ true
-makesTen(9, 9) ➞ false
-makesTen(1, 9) ➞ true
+areaOfCountry("Russia", 17098242) ➞ "Russia is 11.48% of the total world's landmass"
+areaOfCountry("USA", 9372610), "USA is 6.29% of the total world's landmass"
+areaOfCountry("Iran", 1648195) ➞ "Iran is 1.11% of the total world's landmass"
+
+Notes
+The total world's landmass is 148,940,000 [Km^2]
+Round the result to two decimal places.
 */
 
-function makesTen(num1, num2) {
-    if(num1 === 10 || num2 ===10 || num1 + num2 === 10) {
-        return true;
-    } else { return false; }
-}
+// 
 
-console.log(makesTen(5, 4));
-console.log(makesTen(0, 10));
-console.log(makesTen(6, 4));
-console.log(makesTen(7, 2));
-console.log(makesTen(10, 0));
+const proportion = (c = '', a = 0) => `${c} is ${((a / 148940000) * 100).toFixed(2)}% of the total world's landmass.`;
+console.log(proportion("Russia", 17098242));
+console.log(proportion("USA", 9372610));
+console.log(proportion("Iran", 1648195));
