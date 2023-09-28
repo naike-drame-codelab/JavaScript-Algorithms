@@ -16,8 +16,11 @@ isPalindrome("Madam, I'm Adam") ---> true
 
 function isPalindrome(word) {
     const cleanedWord = word.toLowerCase().replace(/[^a-z0-9]/g, '');
+    //console.log(cleanedWord);
     const reversedWord = cleanedWord.split('').reverse().join('');
-    return cleanedWord === reversedWord;
+    //console.log(reversedWord);
+    if(cleanedWord === reversedWord) return true;
+    else return false;
 }
 
 console.log(isPalindrome("kayak"));
