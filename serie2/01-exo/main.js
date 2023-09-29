@@ -16,7 +16,7 @@ possibleBonus(5, 3) ➞ false
 
 function possibleBonus(a, b) {
     let maxAdvance = 6;
-    //Check if b is smaller than a (to avoid backward move) or if b is greater than a plus the max they can move forward (=6)
+
     if (b < a || b > a + maxAdvance) { 
         return false; 
     }

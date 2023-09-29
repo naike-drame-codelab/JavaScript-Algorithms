@@ -18,13 +18,12 @@ oddishOrEvenish(4433) ➞ "Evenish"
 */
 
 function oddishOrEvenish(n) {
-    let intArr = n.toString().split('').map(Number).reduceRight();
+    let intArr = n.toString().split('').map(Number);
     let sum = 0;
     for (let i of intArr) {
         sum += i;
     }
-    let result = sum % 2 === 0 ? "Evenish" : "Oddish";
-    return result;
+    return result = sum % 2 === 0 ? "Evenish" : "Oddish";
 }
 
 console.log(oddishOrEvenish(43));

@@ -14,6 +14,46 @@ caesarCipher("bqq mggrgt", -2) ----> "zoo keeper"
 caesarCipher("My name is Henrique", 3) ----> "pb qdph lv khqultxh "
 */
 
-function caesarCipher(str, num) {
-    const alphabet = ['a', 'b', 'c', 'd', 'reeeeeeeeeeeeeeeeeeeeeee']    
+// function caesarCipher(msg, cKey) {
+//     msg = msg.toUpperCase();
+//     return msg.replace(
+//         /[\u0041-\u005A\u0061-\u007A\u00C0-\u00FF]/g, 
+//         (char) => {
+//             let charCode = char.charCodeAt(0) - 65;
+//             charCode = (charCode - cKey + 26) % 26;
+//             return String.fromCharCode(charCode + 65);
+//         }
+//     );
+// }
+
+// console.log(caesarCipher("zoo keeper", 2)); // "BQQ MGGRGT"
+// console.log(caesarCipher("bqq mggrgt", -2)); // "ZOO KEEPER"
+// console.log(caesarCipher("My name is Henrique", 3)); // "YKP OQWKWM"
+// console.log(caesarCipher('My name is Naïké', 14)); // "QV WKGK ZMJJL"
+
+
+function caesarCipher(msg, cKey) {
+    const regEx = /[\u0041-\u005A\u0061-\u007A\u00C0-\u00FF]/g;
+    return msg.replace(regEx, (char) => {
+        let charCode = char.charCodeAt(0);
+        if (charCode >= 65 && charCode <= 90) {
+            // Uppercase letter
+            charCode = ((charCode - 65 + cKey + 26) % 26) + 65;
+        } else if (charCode >= 97 && charCode <= 122) {
+            // Lowercase letter
+            charCode = ((charCode - 97 + cKey + 26) % 26) + 97;
+        } else if (charCode >= 192 && charCode <= 255) {
+            // Accented characters
+            charCode = ((charCode - 192 + cKey + 26) % 64) + 192;
+        }
+        return String.fromCharCode(charCode).toLowerCase();
+    });
 }
+
+console.log(caesarCipher("zoo keeper", 2)); 
+console.log(caesarCipher("bqq mggrgt", -2)); 
+console.log(caesarCipher("My name is Henrique", 3)); 
+console.log(caesarCipher("My name is Naïké Dramé", -3)); 
+
+
+

@@ -28,6 +28,7 @@ function sumArray(numArr, sum) {
         } else {
             //If not then push this new value (at first it's undefined, when we push it becomes true) into the seenNums object with key being equal to the current index + 1
             seenNums[numArr[i]] = true;
+            console.log(seenNums)
         }
     }
     return sumPairs;
