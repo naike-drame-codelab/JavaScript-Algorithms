@@ -9,12 +9,11 @@ Expected results
 */
 
 function reversedWord(str) {
-    let words = str.split(' ');
-    //console.log(words);
+    let words = str.toLowerCase().split(' ');
+    console.log(words);
     let reversedLetters = words.map(word => word.split("").reverse().join(""));
     //console.log(reversedLetters);
-    let reversedString = reversedLetters.join(" ");
-    return reversedString;
+    return reversedLetters.join(" ");
         
 }
     //let reversedWord = (str) => str.split('').reverse().join('')//.split(" ").reverse().join(" ");

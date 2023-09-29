@@ -22,14 +22,26 @@ Test your code with these text and others.
 
 
 function ransomNote(noteText, magazineText) {
-    noteArr = noteText.split(" ");
-    magArr = magazineText.split(" ");
-    const noteSet = new Set(noteArr);
-    console.log(noteSet);
+    let noteArr = noteText.toLowerCase().split(" ");
+    let magazineArr = magazineText.toLowerCase().split(" ");
+    let magazineObj = {};
 
-    const canWriteNote = Array.from(noteSet).every(word => magArr.includes(word));
-    
-    return canWriteNote;
+    magazineArr.forEach(word => {
+        if (!magazineObj[word]) {
+            magazineObj[word] = 0;
+        }
+        magazineObj[word]++;
+    });
+    console.log(magazineObj);
+
+    for (let word of noteArr) {
+        if (!magazineObj[word] || magazineObj[word] <= 0) {
+            return false;
+        }
+        magazineObj[word]--;
+    }
+
+    return true;
 }
 
 let noteText = "this is a secret note to you from a secret admirer";
